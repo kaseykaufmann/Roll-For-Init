@@ -1,3 +1,7 @@
+# GitHub Ettiquette
+- Commit new features to SEPARATE BRANCHES. Never commit to master.
+- Pull often and frequently.
+
 # MERN Stack Template Project
 
 This is a MERN stack template for future projects of mine.
