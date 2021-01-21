@@ -20,3 +20,6 @@ $RECYCLE.BIN/
 .Spotlight-V100
 .Trashes
 *.icloud
+
+# Config files
+config/config.js
