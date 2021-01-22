@@ -1,13 +1,12 @@
 const express = require("express");
 const router = express.Router();
 
-// need user model??
 //const User = require("../../models/User");
 
-// @route PUT api/users/register
+// @route POST api/users/register
 // @desc Register user
 // @access Public
-router.put("/register", (req, res) => {
+router.post("/register", (req, res) => {
   res.send("hi /register");
 });
 
