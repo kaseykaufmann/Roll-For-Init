@@ -10,10 +10,10 @@ router.post("/register", (req, res) => {
   res.send("hi /register");
 });
 
-// @route PUT api/users/login
+// @route POST api/users/login
 // @desc Login user 
 // @access Public
-router.put("/login", (req, res) => {
+router.post("/login", (req, res) => {
   res.send("hi /login");
 });
 
