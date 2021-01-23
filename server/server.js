@@ -24,6 +24,10 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// users/login && users/register routes
+const users = require("./routes/users");
+app.use("/users", users);
+
 // API routes
 require("./routes")(app);
 
