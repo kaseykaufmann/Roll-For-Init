@@ -1,0 +1,19 @@
+.side-drawer {
+  border-right: 1px solid black;
+  padding: 0px;
+}
+
+.page-row {
+  height: 100%;
+}
+
+.accordion-header {
+  margin: 0px;
+}
+
+.accordion-button {
+  border: 0px;
+  border-bottom: 1px solid lightgray !important;
+  padding: 0px;
+  width: 100%;
+}

@@ -1,0 +1,19 @@
+.container {
+  height: calc(100vh - 56px);
+  text-align: center;
+}
+
+.logo {
+  height: 300px;
+  width: 300px;
+  border: 1px black solid;
+}
+
+.buttons {
+  margin: 20px;
+  width: 150px;
+}
+
+.filler-space {
+  height: 100px;
+}
