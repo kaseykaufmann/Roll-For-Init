@@ -1,0 +1,19 @@
+.logo {
+  height: 300px;
+  width: 300px;
+  border: 1px black solid;
+}
+
+.buttons {
+  margin: 20px;
+  width: 150px;
+}
+
+.input-form {
+  margin: 25px auto;
+  width: 300px;
+}
+
+.filler-space {
+  height: 50px;
+}
