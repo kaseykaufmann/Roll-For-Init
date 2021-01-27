@@ -23,4 +23,4 @@ $RECYCLE.BIN/
 
 # Config files
 config/config.js
-.env
+*.env
