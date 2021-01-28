@@ -14,36 +14,20 @@ const Login = () => {
       </div>
       <div className="input-form">
         <div className="input-group mb-3">
-          <span className="input-group-text" id="inputGroup-sizing-default">
-            Default
-          </span>
-          <input
-            type="text"
-            className="form-control"
-            aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-default"
-          />
+          <input type="text" className="form-control" placeholder="Email" />
         </div>
         <div className="input-group mb-3">
-          <span className="input-group-text" id="inputGroup-sizing-default">
-            Default
-          </span>
-          <input
-            type="text"
-            className="form-control"
-            aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-default"
-          />
+          <input type="text" className="form-control" placeholder="Password" />
         </div>
       </div>
       <div className="d-grid gap-2">
         <Link to="/">
-          <button type="button" className="btn btn-dark btn-lg buttons">
+          <button type="button" className="btn btn-lg top-buttons">
             Back
           </button>
         </Link>
         <Link to="/signup">
-          <button type="button" className="btn btn-info btn-lg buttons">
+          <button type="button" className="btn btn-lg top-buttons">
             Log In
           </button>
         </Link>

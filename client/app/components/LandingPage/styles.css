@@ -4,14 +4,29 @@
 }
 
 .logo {
-  height: 300px;
-  width: 300px;
-  border: 1px black solid;
+  background-image: url("../../../static/logo.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 200px;
+  margin-bottom: 25px;
+  width: auto;
 }
 
-.buttons {
-  margin: 20px;
-  width: 150px;
+.top-buttons,
+.top-buttons:hover {
+  background-color: #4a2932;
+  color: white;
+  width: 325px;
+  margin: 25px;
+  border-radius: 15px;
+}
+
+.btm-buttons {
+  background-color: #f0e6d3;
+  color: #172838;
+  width: 200px;
+  margin: 25px 75px;
+  border-radius: 15px;
 }
 
 .filler-space {

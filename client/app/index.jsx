@@ -9,6 +9,7 @@ import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 import Upload from "./components/Upload";
 import Create from "./components/Create";
+import "./styles.scss";
 
 render(
   <Router>
