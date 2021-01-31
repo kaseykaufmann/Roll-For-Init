@@ -7,13 +7,13 @@ nodemon({
   },
   script: path.join(__dirname, 'server/server'),
   ignore: [],
-  watch: process.env.NODE_ENV !== 'production' ? ['server/*'] : false,
+  watch: process.env.NODE_ENV === 'development' ? ['server/*'] : false,
   ext: 'js'
-})
-  .on('restart', function () {
-    console.log('Server restarted!');
-  })
-  .once('exit', function () {
-    console.log('Shutting down server');
-    process.exit();
-  });
+}).on('start', function () {
+  console.log('[Nodemon] Server started!');
+}).on('restart', function () {
+  console.log('[Nodemon] Server restarted!');
+}).once('exit', function () {
+  console.log('[Nodemon] Shutting down server');
+  process.exit();
+});

@@ -1,8 +1,7 @@
-const fs = require("fs");
+const router = require('express').Router();
 
-module.exports = app => {
-  // API routes
-  fs.readdirSync(__dirname + "/api/").forEach(file => {
-    require(`./api/${file.substr(0, file.indexOf("."))}`)(app);
-  });
-};
+router.use('/', require('./auth.js'));
+
+router.use('/user', require('./user.js'));
+
+module.exports = router;
