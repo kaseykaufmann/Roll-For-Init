@@ -8,9 +8,10 @@ const express = require('express'),
     webpackDevMiddleware = require("webpack-dev-middleware"),
     webpackConfig = require("../../webpack.config");
 
-// require('dotenv').config();
 
 module.exports.init = () => {
+    require('dotenv').config({ path: path.resolve(__dirname, '../../secret.env') });
+
     const isDev = process.env.NODE_ENV !== "production";
 
     // Configuration
@@ -29,7 +30,7 @@ module.exports.init = () => {
     app.use(require('cookie-parser')());
 
     //Routing
-    app.use('/api', require('../routes'));
+    app.use('/', require('../routes'));
 
     if (isDev) {
         const compiler = webpack(webpackConfig);

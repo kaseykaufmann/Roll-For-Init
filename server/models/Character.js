@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
 
-var { Schema, Number } = mongoose;
+var { Schema } = mongoose;
 
+//Needs updating to fit current model. Date updated/created are good parameters to keep track of.
 const CharacterSchema = new Schema({
   name: {
     type: String,

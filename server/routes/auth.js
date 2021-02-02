@@ -1,93 +1,7 @@
-const router = require('express').Router(),
-    validator = require('validator'),
+/*const router = require('express').Router(),
+    //validator = require('validator'),
     bcrypt = require('bcrypt'),
     User = require('../models/UserModel.js');
-
-
-const loginUser = (email, password, done) => {
-    const userData = {
-        email: email.trim(),
-        password: password.trim()
-    };
-    User.findOne({ email: userData.email }, async (err, user) => {
-        if (err) { return done(err); }
-        if (!user) {
-            const error = new Error('Incorrect email or password');
-            error.name = 'IncorrectCredentialsError';
-            return done(error);
-        }
-        bcrypt.compare(password, user.password).then((response) => {
-            if (response === false) {
-                const error = new Error('Incorrect email or password');
-                error.name = 'IncorrectCredentialsError';
-                return done(error);
-            }
-            if (user.email_verified === false) {
-                const error = new Error('Email has not been verified');
-                error.name = 'UnverifiedEmail';
-                return done(error);
-            }
-            return done(null, user);
-        }).catch(error => done(error));
-    });
-}
-
-
-const registerUser = async (username, email, password, done) => {
-    const userData = {
-        email: email.trim(),
-        password: password.trim(),
-        username: username.trim(),
-    };
-    const error = new Error('');
-    await User.findOne({ email: userData.email }).then((user) => {
-        if (user) {
-            error.message = 'Email';
-        }
-    });
-    await User.findOne({ username: userData.username }).then((user) => {
-        if (user) {
-            error.message = error.message + ', Username';
-        }
-    });
-    if (error.message != '') {
-        error.name = 'Conflict';
-        return done(error);
-    }
-    try {
-        const hashedPassword = await bcrypt.hash(userData.password, 10);
-        const user = new User({
-            username: userData.username,
-            email: userData.email,
-            password: hashedPassword,
-        });
-        //TODO: Write this function
-        // sendAuthenticationEmail(req, user);
-        user.save((err) => {
-            if (err) {
-                return done(err);
-            } else {
-                return done(null);
-            }
-        });
-    } catch (err) {
-        return done(err);
-    }
-}
-
-
-const authenticateJwt = (jwt_payload, done) => {
-    User.findById(jwt_payload.id).then((user) => {
-        if (user) {
-            done(null, user);
-        } else {
-            done(null, false);
-        }
-    }).catch((err) => {
-        done(err);
-    });
-}
-
 
 function validateSignupForm(body) {
     const errors = {};
@@ -131,16 +45,6 @@ function validateSignupForm(body) {
         errors,
     };
 }
-
-//TODO: Determine is this is best practice
-const isAuthenticated = (req) => {
-    if (req.user) {
-        return true
-    } else {
-        return false
-    }
-}
-
 
 //Handles signup
 const registerHandler = (req, res, next) => {
@@ -286,6 +190,7 @@ const authenticationHandler = (req, res, next) => {
     })
 }
 
+
 //Signup
 router.post("/register", registerHandler);
 
@@ -296,3 +201,4 @@ router.post("/login", loginHandler);
 router.use("/", authenticationHandler);
 
 module.exports = router;
+*/
