@@ -8,6 +8,7 @@
   background-repeat: no-repeat;
   background-size: contain;
   height: 200px;
+  min-width: 100px;
   margin-bottom: 25px;
   width: auto;
 }
@@ -16,7 +17,8 @@
 .top-buttons:hover {
   background-color: #4a2932;
   color: white;
-  width: 325px;
+  max-width: 325px;
+  width: 40%;
   margin: 25px;
   border-radius: 15px;
 }
@@ -31,4 +33,14 @@
 
 .filler-space {
   height: 100px;
+}
+
+.input-group {
+  min-width: 400px;
+}
+
+.log-out-button {
+  float: right;
+  margin-top: 50px;
+  height: 50px;
 }

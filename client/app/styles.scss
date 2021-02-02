@@ -1,8 +1,16 @@
 body {
   background-image: url("../static/background.jpeg");
   background-color: #172838;
-  background-repeat: no-repeat;
   background-size: cover;
+}
+
+.title {
+  width: 100%;
+  border-bottom: 1px white solid;
+}
+
+div {
+  color: white;
 }
 
 button {

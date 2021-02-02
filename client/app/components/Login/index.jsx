@@ -26,7 +26,7 @@ const Login = () => {
             Back
           </button>
         </Link>
-        <Link to="/signup">
+        <Link to="/dashboard">
           <button type="button" className="btn btn-lg top-buttons">
             Log In
           </button>
