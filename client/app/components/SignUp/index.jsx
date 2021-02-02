@@ -1,24 +1,24 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { Form, Field } from "react-final-form";
+import { signUp } from "../../actions";
 
 import "./styles.css";
 
-const reduxField = props => (
+const reduxField = ({ placeholder, input, meta }) => (
   <div className="input-group mb-3">
-    <input
-      type="text"
-      className="form-control"
-      placeholder={props.placeholder}
-      required
-    />
-    <div className="valid-feedback">Looks good!</div>
+    <input {...input} className="form-control" placeholder={placeholder} />
+    {meta.error && meta.touched && (
+      <span style={{ width: "100%", color: "red" }}>{meta.error}</span>
+    )}
   </div>
 );
 
 const SignUp = () => {
+  const dispatch = useDispatch();
   const onSubmit = values => {
-    console.log(values);
+    dispatch(signUp(values));
   };
 
   return (
@@ -31,40 +31,68 @@ const SignUp = () => {
       </div>
       <Form
         onSubmit={onSubmit}
-        // validate={validate}
-        render={({ handleSubmit }) => (
-          <form
-            onSubmit={handleSubmit}
-            className="needs-validation input-form"
-            noValidate
-          >
+        validate={values => {
+          const errors = {};
+          if (!values.username) {
+            errors.username = "Required";
+          }
+          if (!values.email) {
+            errors.email = "Required";
+          }
+          if (!values.password) {
+            errors.password = "Required";
+          }
+          if (!values.confirmPassword) {
+            errors.confirmPassword = "Required";
+          } else if (values.confirmPassword !== values.password) {
+            errors.confirmPassword = "Password Do Not Match";
+          }
+          return errors;
+        }}
+        render={({ handleSubmit, form, submitting, pristine, values }) => (
+          <form onSubmit={handleSubmit} className="needs-validation input-form">
             <Field
+              type="text"
               name="username"
               component={reduxField}
               placeholder="Username"
             />
-            <Field name="email" component={reduxField} placeholder="Email" />
             <Field
+              type="text"
+              name="email"
+              component={reduxField}
+              placeholder="Email"
+            />
+            <Field
+              type="password"
               name="password"
               component={reduxField}
               placeholder="Password"
             />
             <Field
+              type="password"
               name="confirmPassword"
               component={reduxField}
               placeholder="Confirm Password"
             />
             <div className="d-grid gap-2">
               <Link to="/">
-                <button type="button" className="btn btn-lg top-buttons">
+                <button
+                  type="button"
+                  onClick={form.reset}
+                  className="btn btn-lg top-buttons"
+                  disabled={submitting || pristine}
+                >
                   Back
                 </button>
               </Link>
-              <Link to="/signup">
-                <button type="submit" className="btn btn-lg top-buttons">
-                  Sign Up
-                </button>
-              </Link>
+              <button
+                type="submit"
+                disabled={submitting}
+                className="btn btn-lg top-buttons"
+              >
+                Sign Up
+              </button>
             </div>
           </form>
         )}

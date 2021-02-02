@@ -3,7 +3,6 @@ import { LOADING_ON, LOADING_OFF, SIGN_UP, THROW_ERROR } from "../actions";
 export const signUp = (
   state = {
     loading: false,
-    signedUp: false,
     data: null,
     error: null
   },
@@ -23,10 +22,10 @@ export const signUp = (
       };
 
     case SIGN_UP:
-      console.log(action);
+      console.log(action.payload);
       return {
         ...state,
-        data: action
+        data: action.payload
       };
 
     case THROW_ERROR:

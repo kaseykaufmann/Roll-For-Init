@@ -4,8 +4,10 @@ export const LOADING_OFF = "LOADING_OFF";
 export const SIGN_UP = "SIGN_UP";
 export const THROW_ERROR = "THROW_ERROR";
 
-export const signUp = newUserData => async (dispatch, getState) => {
+export const signUp = newUserData => (dispatch, getState) => {
   dispatch({ type: LOADING_ON });
+  console.log(newUserData);
+
   // axios
   //   .post("/signup", newUserData)
   //   .then(() => {
@@ -16,7 +18,7 @@ export const signUp = newUserData => async (dispatch, getState) => {
     confirmPassword: newUserData.confirmPassword
   };
 
-  dispatch({ type: SIGN_UP, signUpInfo });
+  dispatch({ type: SIGN_UP, payload: signUpInfo });
   // })
   // .catch(error => {
   //   dispatch({
