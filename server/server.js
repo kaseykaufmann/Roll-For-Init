@@ -9,6 +9,8 @@ const webpackHotMiddleware = require("webpack-hot-middleware");
 const config = require("../config/config");
 const webpackConfig = require("../webpack.config");
 
+require('dotenv').config();
+
 const isDev = process.env.NODE_ENV !== "production";
 const port = process.env.PORT || 8080;
 
@@ -24,8 +26,15 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// users/login && users/register routes
+const users = require("./routes/users");
+app.use("/users", users);
+
 // API routes
 require("./routes")(app);
+
+// Own middleware
+app.use(require('cookie-parser')());
 
 if (isDev) {
   const compiler = webpack(webpackConfig);
@@ -53,8 +62,10 @@ if (isDev) {
 
   app.use(webpackHotMiddleware(compiler));
   app.use(express.static(path.resolve(__dirname, "../dist")));
-} else {
+} 
+else {
   app.use(express.static(path.resolve(__dirname, "../dist")));
+
   app.get("*", function (req, res) {
     res.sendFile(path.resolve(__dirname, "../dist/index.html"));
     res.end();
