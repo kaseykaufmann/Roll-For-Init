@@ -81,14 +81,14 @@ const SignUp = () => {
                   type="button"
                   onClick={form.reset}
                   className="btn btn-lg top-buttons"
-                  disabled={submitting || pristine}
+                  disabled={submitting}
                 >
                   Back
                 </button>
               </Link>
               <button
                 type="submit"
-                disabled={submitting}
+                disabled={submitting || pristine}
                 className="btn btn-lg top-buttons"
               >
                 Sign Up

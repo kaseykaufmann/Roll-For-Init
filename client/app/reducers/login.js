@@ -1,9 +1,10 @@
-import { LOADING_ON, LOADING_OFF, SIGN_UP, THROW_ERROR } from "../actions";
+import { LOADING_ON, LOADING_OFF, THROW_ERROR, LOGIN } from "../actions";
 
-export const signUp = (
+export const login = (
   state = {
     loading: false,
-    data: null,
+    user: null,
+    loggedIn: false,
     error: null
   },
   action
@@ -21,10 +22,10 @@ export const signUp = (
         loading: false
       };
 
-    case SIGN_UP:
+    case LOGIN:
       return {
         ...state,
-        data: action.payload
+        user: action.payload
       };
 
     case THROW_ERROR:

@@ -1,23 +1,23 @@
 export const LOADING_ON = "LOADING_ON";
 export const LOADING_OFF = "LOADING_OFF";
 
-export const SIGN_UP = "SIGN_UP";
+export const LOGIN = "LOGIN";
 export const THROW_ERROR = "THROW_ERROR";
 
-export const signUp = newUserData => (dispatch, getState) => {
+export const login = data => (dispatch, getState) => {
   dispatch({ type: LOADING_ON });
 
   // axios
-  //   .post("/signup", newUserData)
+  //   .post("/login", data)
   //   .then(() => {
-  const signUpInfo = {
-    username: newUserData.username,
-    email: newUserData.email,
-    password: newUserData.password,
-    confirmPassword: newUserData.confirmPassword
+  const loginInfo = {
+    username: data.username,
+    email: data.email,
+    password: data.password,
+    confirmPassword: data.confirmPassword
   };
 
-  dispatch({ type: SIGN_UP, payload: signUpInfo });
+  dispatch({ type: LOGIN, payload: loginInfo });
   // })
   // .catch(error => {
   //   dispatch({
