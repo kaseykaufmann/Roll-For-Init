@@ -1,0 +1,33 @@
+body {
+  background-image: url("../static/background.jpeg");
+  background-color: #172838;
+  background-size: cover;
+}
+
+.title {
+  width: 100%;
+  border-bottom: 1px white solid;
+}
+
+div {
+  color: white;
+}
+
+button {
+  font-family: "goudy-medieval-alternate";
+  font-size: 32px;
+  height: 75px;
+}
+
+input {
+  background-color: #f0e6d3 !important;
+  color: #172838 !important;
+  font-family: "goudy-medieval-alternate" !important;
+  font-size: 28px !important;
+  border-radius: 8px !important;
+  border-width: 3px !important;
+  border-color: #4a2932 !important;
+  max-width: 700px !important;
+  height: 60px !important;
+  margin: auto;
+}

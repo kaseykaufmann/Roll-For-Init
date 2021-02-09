@@ -4,16 +4,43 @@
 }
 
 .logo {
-  height: 300px;
-  width: 300px;
-  border: 1px black solid;
+  background-image: url("../../../static/logo.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 200px;
+  min-width: 100px;
+  margin-bottom: 25px;
+  width: auto;
 }
 
-.buttons {
-  margin: 20px;
-  width: 150px;
+.top-buttons,
+.top-buttons:hover {
+  background-color: #4a2932;
+  color: white;
+  max-width: 325px;
+  width: 40%;
+  margin: 25px;
+  border-radius: 15px;
+}
+
+.btm-buttons {
+  background-color: #f0e6d3;
+  color: #172838;
+  width: 200px;
+  margin: 25px 75px;
+  border-radius: 15px;
 }
 
 .filler-space {
-  height: 100px;
+  height: 5%;
+}
+
+.input-group {
+  min-width: 400px;
+}
+
+.log-out-button {
+  float: right;
+  margin-top: 50px;
+  height: 50px;
 }
