@@ -1,19 +1,30 @@
 const nodemon = require('nodemon');
 const path = require('path');
+const dotenv = require('dotenv');
+
+dotenv.config({
+  path: path.resolve(__dirname, './secret.env'),
+  debug: process.env.DEBUG
+});
 
 nodemon({
+  script: path.join(__dirname, 'server/server'),
+  ext: 'js',
   execMap: {
     js: 'node'
   },
-  script: path.join(__dirname, 'server/server'),
   ignore: [],
-  watch: process.env.NODE_ENV !== 'production' ? ['server/*'] : false,
-  ext: 'js'
+  legacyWatch: process.env.NODE_ENV === 'development' ? ['server/*'] : false,
+  // watch: ,
 })
-  .on('restart', function () {
-    console.log('Server restarted!');
-  })
-  .once('exit', function () {
-    console.log('Shutting down server');
-    process.exit();
-  });
+
+nodemon.on('start', function () {
+  console.log('[Nodemon] Server started!');
+}).on('crash', function (err) {
+  console.log('[Nodemon] Server crashed: ', err);
+}).on('restart', function (files) {
+  console.log('[Nodemon] Server restarted due to: ', files);
+}).once('quit', function () {
+  console.log('[Nodemon] Shutting down server');
+  process.exit()
+});
