@@ -4,7 +4,10 @@
   "description": "A MERN stack template to start future projects.",
   "private": true,
   "scripts": {
-    "dev": "webpack -p --progress --profile --colors && node server",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "client": "webpack -p --progress --profile --colors",
+    "server": "node server",
+    "api": "node ../5e-srd-api/server",
     "start": "node server"
   },
   "engines": {

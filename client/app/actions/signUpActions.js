@@ -8,7 +8,7 @@ export const signUp = newUserData => (dispatch, getState) => {
   dispatch({ type: LOADING_ON });
 
   // axios
-  //   .post("/signup", newUserData)
+  //   .post("/api/users/register", newUserData)
   //   .then(() => {
   const signUpInfo = {
     username: newUserData.username,

@@ -8,7 +8,7 @@ export const login = data => (dispatch, getState) => {
   dispatch({ type: LOADING_ON });
 
   // axios
-  //   .post("/login", data)
+  //   .post("/api/users/login", data)
   //   .then(() => {
   const loginInfo = {
     username: data.username,

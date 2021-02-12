@@ -10,28 +10,35 @@ const express = require('express'),
 
 
 module.exports.init = () => {
-    require('dotenv').config({ path: path.resolve(__dirname, '../../secret.env') });
-
+    // Configuration
     const isDev = process.env.NODE_ENV !== "production";
 
-    // Configuration
-    // ================================================================================================
-
     // Set up Mongoose
-    const db = isDev ? config.db_dev : config.db;
-    mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true });
-    mongoose.Promise = global.Promise;
+    const mongoDB = isDev ? config.db_dev : config.db;
+    const mongoOptions = {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useCreateIndex: true,
+    };
 
+    mongoose.connect(mongoDB, mongoOptions).then((db) => {
+        console.log('Successfully connected to mongoose database.')
+    }, (error) => {
+        console.log('MongoDB Connection Error:', error)
+    });
+
+    // Set up express
     const app = express();
     app.use(express.urlencoded({ extended: true }));
     app.use(express.json());
 
-    // Own middleware
+    // Middleware
     app.use(require('cookie-parser')());
 
-    //Routing
-    app.use('/', require('../routes'));
+    // API Routing
+    app.use('/api/', require('../routes'));
 
+    // Serve static files
     if (isDev) {
         const compiler = webpack(webpackConfig);
 
@@ -58,8 +65,7 @@ module.exports.init = () => {
 
         app.use(webpackHotMiddleware(compiler));
         app.use(express.static(path.resolve(__dirname, "../dist")));
-    }
-    else {
+    } else {
         app.use(express.static(path.resolve(__dirname, "../dist")));
 
         app.get("*", function (req, res) {
