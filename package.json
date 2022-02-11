@@ -40,7 +40,7 @@
     "mkdirp": "^1.0.4",
     "mongoose": "^5.11.13",
     "mquery": "^3.2.3",
-    "node-sass": "^5.0.0",
+    "node-sass": "^7.0.0",
     "nodemon": "^1.19.4",
     "postcss-loader": "3.0.0",
     "react": "^16.14.0",
