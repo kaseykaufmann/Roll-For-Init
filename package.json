@@ -36,7 +36,7 @@
     "jsonwebtoken": "^8.5.1",
     "kind-of": "^6.0.3",
     "lodash": "^4.17.20",
-    "minimist": "^1.2.5",
+    "minimist": "^1.2.6",
     "mkdirp": "^1.0.4",
     "mongoose": "^5.11.13",
     "mquery": "^3.2.3",
